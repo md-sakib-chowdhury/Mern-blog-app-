@@ -3,10 +3,16 @@ const cors = require('cors');
 const morgan = require('morgan');
 const colors = require('colors');
 const dotenv = require('dotenv');
+// const { connect } = require('mongoose');
 
-
+const connectDB = require("./config/db");
 // configenv
 dotenv.config();
+
+// mongidbconection
+
+connectDB();
+
 //rest object
 const app = express()
 
