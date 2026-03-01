@@ -12,6 +12,7 @@ dotenv.config();
 // routes
 
 const userRoutes = require('./routes/userController')
+const blogRoutes = require("./routes/blogRoutes")
 // mongidbconection
 
 connectDB();
@@ -26,7 +27,7 @@ app.use(morgan('dev'))
 
 //routes
 app.use("/api/v1/user", userRoutes);
-
+app.use("/api/v1/blog", blogRoutes);
 // Port
 const PORT = process.env.PORT || 8080;
 //listen

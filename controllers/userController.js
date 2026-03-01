@@ -1,6 +1,7 @@
 
-//create user register user
-const userModel = require("../models/userModel");
+// //create user register user
+
+const userModel = require ("../models/userModel");
 const bcrypt = require("bcrypt")
 //create user register user
 exports.registerController = async (req, res) => {
