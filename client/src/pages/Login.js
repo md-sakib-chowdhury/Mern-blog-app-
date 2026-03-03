@@ -65,18 +65,10 @@ const Register = () => {
                     borderRadius={15}
                 >
                     <Typography variant="h4" sx={{ textTransform: "uppercase " }} padding={3} textAlign="center">
-                        Registter
+                        Login
                     </Typography>
 
-                    <TextField
-                        placeholder="name"
-                        value={inputs.name}
-                        onChange={handleChange}
-                        name="name"
-                        margin="normal"
-                        type={"text"}
-                        required
-                    />
+                  
 
                     <TextField
                         placeholder="email"
