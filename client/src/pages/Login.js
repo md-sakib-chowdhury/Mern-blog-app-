@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { Box, Typography, TextField, Button } from "@mui/material";
 
 const Login = () => {
     return (
-        <div>
+        <>
             <h1>Login Page</h1>
-        </div>
-    )
-}
+        </>
+    );
+};
 
-export default Login
+export default Login;
