@@ -13,17 +13,23 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, TextField, Button } from "@mui/material";
-import axios from 'axios'
-const Register = () => {
+import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { authActions } from "../redux/store";
+
+const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+
+
     // state
     const [inputs, setInputs] = useState({
-        
         email: '',
         password: ''
-
     });
-    //handle input change
+
+    // handle input change
     const handleChange = (e) => {
         setInputs((prevState) => ({
             ...prevState,
@@ -31,21 +37,22 @@ const Register = () => {
         }));
     };
 
-    // fromhandller
+    // form handler
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const { data } = await axios.post("/api/v1/user/login", {
-              
                 email: inputs.email,
                 password: inputs.password,
             });
             if (data.success) {
-                alert("User login Successfully");
+                dispatch(authActions.login());
+                alert("User Login Successfully");
                 navigate("/");
             }
         } catch (error) {
             console.log(error);
+            alert("Login Failed! Please check your credentials.");
         }
     };
 
@@ -64,47 +71,52 @@ const Register = () => {
                     padding={3}
                     borderRadius={15}
                 >
-                    <Typography variant="h4" sx={{ textTransform: "uppercase " }} padding={3} textAlign="center">
+                    <Typography
+                        variant="h4"
+                        sx={{ textTransform: "uppercase" }}
+                        padding={3}
+                        textAlign="center"
+                    >
                         Login
                     </Typography>
 
-                  
-
                     <TextField
-                        placeholder="email"
+                        placeholder="Email"
                         value={inputs.email}
                         name="email"
                         margin="normal"
                         type={"email"}
                         required
                         onChange={handleChange}
+                        fullWidth
                     />
 
                     <TextField
-                        placeholder="psssword"
+                        placeholder="Password"
                         value={inputs.password}
                         name="password"
                         margin="normal"
                         type={"password"}
                         required
                         onChange={handleChange}
+                        fullWidth
                     />
-                    {/* <Button variant="contained" fullWidth sx={{ mt: 2 }}>Submit</Button>
-                <Button sx={{ mt: 2 }}>Already Registered? Please Login</Button> */}
+
                     <Button
                         type="submit"
                         sx={{ borderRadius: 3, marginTop: 3 }}
                         variant="contained"
                         color="primary"
+                        fullWidth
                     >
                         Submit
                     </Button>
 
                     <Button
-                        onClick={() => navigate("/login")}
+                        onClick={() => navigate("/register")}
                         sx={{ borderRadius: 3, marginTop: 3 }}
                     >
-                        Already Registered? Please Login
+                        Not A User? Please Register
                     </Button>
                 </Box>
             </form>
@@ -112,4 +124,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;  // Login export করুন
