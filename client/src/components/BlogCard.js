@@ -25,11 +25,11 @@ export default function BlogCard({ title, description, image, username }) {
                         {username}
                     </Avatar>
                 }
-                action={
-                    <IconButton>
-                        <MoreVertIcon />
-                    </IconButton>
-                }
+                // action={
+                //     <IconButton>
+                //         <MoreVertIcon />
+                //     </IconButton>
+                // }
                 title="Today is my Day"
                 subheader="March 4, 2026"
             />
