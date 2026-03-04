@@ -11,12 +11,12 @@
     "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-  
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@fontsource/roboto": "^5.2.10",
+    "@mui/icons-material": "^7.3.8",
     "@mui/material": "^7.3.8",
     "bcrypt": "^6.0.0",
     "colors": "^1.4.0",

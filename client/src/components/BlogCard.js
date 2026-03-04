@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-export default function BlogCard() {
+export default function BlogCard({ title, description, image, username }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -22,7 +22,7 @@ export default function BlogCard() {
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }}>
-                        R
+                        {username}
                     </Avatar>
                 }
                 action={
@@ -30,30 +30,30 @@ export default function BlogCard() {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title="Shrimp and Chorizo Paella"
-                subheader="September 14, 2016"
+                title="Today is my Day"
+                subheader="March 4, 2026"
             />
 
             <CardMedia
                 component="img"
                 height="194"
-                image="https://via.placeholder.com/345x194?text=Blog+Image"
+                image={image}
                 alt="Blog"
             />
 
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    This impressive paella is a perfect party dish and a fun meal to cook.
+                    {description}
                 </Typography>
             </CardContent>
-
+            {/* 
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography>
                         Full blog content will appear here when expanded.
                     </Typography>
                 </CardContent>
-            </Collapse>
+            </Collapse> */}
         </Card>
     );
 }
